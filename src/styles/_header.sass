@@ -1,0 +1,63 @@
+@use "mixins"
+@use "variables"
+
+header 
+  height: 50px
+  width: 100%
+  padding: 3rem 10rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  .header__logo
+    height: 25px
+    cursor: pointer
+    img
+      height: 100%
+      width: 100%
+  .header__hamburger
+    display: none
+    outline: none
+    background: transparent
+    border: none
+    cursor: pointer
+  .header__links
+    +mixins.flex-row-center
+    column-gap: 2rem
+    font-size: 0.65rem
+    &__link
+      text-transform: uppercase
+      color: variables.$color-dark-blue
+      letter-spacing: 0.07rem
+      cursor: pointer
+      text-decoration: none
+      transition: all .15s ease
+    &__link:hover
+      color: variables.$color-light-red
+    &__link--login
+      background-color: variables.$color-light-red
+      color: rgba(255, 255, 255, .85)
+      padding: 0.5rem 1.2rem
+      cursor: pointer
+      font-weight: 500
+      border-radius: 0.2rem
+      box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15);
+      border: 2px solid variables.$color-light-red
+    &__link--login:hover
+      background-color: #fff
+      border: 2px solid variables.$color-light-red
+@media all and (max-width: 375px)
+  header 
+    padding: 3rem 0.6rem
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .header__logo
+      height: 25px
+      cursor: pointer
+      img
+        height: 100%
+        width: 100%
+    .header__links
+      display: none
+    .header__hamburger
+      display: block

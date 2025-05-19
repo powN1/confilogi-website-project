@@ -1,0 +1,33 @@
+@use 'mixins'
+@use 'variables'
+
+@media all and (max-width: 375px)
+  footer 
+    width: 100%
+    +mixins.flex-column-center
+    background-color: variables.$color-dark-blue
+    padding: 2rem 0
+    row-gap: 2rem
+    .footer__logo
+      height: 25px
+      cursor: pointer
+      img
+        height: 100%
+        width: 100%
+    .footer__links-container
+      +mixins.flex-column-center
+      row-gap: 1.6rem
+      &__link
+        width: 100%
+        border: none
+        background-color: transparent
+        text-transform: uppercase
+        color: rgba(255,255,255,.9)
+        letter-spacing: 0.1rem
+        cursor: pointer
+    .footer__social-links-container
+      +mixins.flex-row-center
+      column-gap: 1.6rem
+      &__link
+        color: white
+      

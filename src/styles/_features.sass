@@ -1,0 +1,65 @@
+@use "variables"
+@use "mixins"
+
+.features
+  padding: 0 1rem
+  +mixins.flex-column-center
+  row-gap: 1rem
+  h3
+    color: variables.$color-dark-blue
+    font-size: 1.6rem
+  p
+    text-align: center
+    padding: 0 0.5rem
+    color: variables.$color-gray
+    line-height: 1.8rem
+    font-size: 0.9rem
+  ul
+    list-style: none
+    +mixins.flex-column-center
+    width: 100%
+    li
+      +mixins.flex-row-center
+      width: 100%
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15)
+      cursor: pointer
+      transition-duration: 0.3s
+      div
+        position: relative
+        padding: 1rem
+        text-transform: capitalize
+        color: variables.$color-gray
+        &::before
+          content: "";
+          position: absolute;
+          bottom: 0
+          height: 3px
+          width: 0%
+          left: 50%
+          transition: width 300ms, left 300ms
+          background-color: variables.$color-light-red
+        &.active::before
+          width: 100%
+          left: 0
+        &.active
+          color: variables.$color-dark-blue
+        
+
+  &__category-extended
+    +mixins.flex-column-center
+    row-gap: 1rem
+    &__image
+      width: 100%
+      img
+        width: 100%
+        height: 100%
+    h3
+      color: variables.$color-dark-blue
+      font-size: 1.6rem
+    p
+      text-align: center
+      padding: 0 0.5rem
+      color: variables.$color-gray
+      line-height: 1.8rem
+      font-size: 0.9rem
+      
