@@ -36,8 +36,8 @@
           width: 100%
           text-align: center
           &::before
-            content: "";
-            position: absolute;
+            content: ""
+            position: absolute
             bottom: 0
             height: 3px
             width: 0%
@@ -49,11 +49,9 @@
             left: 0
           &.active
             color: variables.$color-dark-blue
-
   &__category-extended
     display: flex
     column-gap: 5rem
-    // justify-content: space-between
     width: 100%
     &__image
       display: flex
@@ -63,18 +61,17 @@
       min-width: 50%
       img
         position: relative
-        // width: 100%
         height: 100%
     &__image::before
-      position: absolute;
-      content: "";
+      position: absolute
+      content: ""
       width: 500%
       height: 80%
       background-color: variables.$color-light-blue
-      bottom: 0;
-      right: 0;
+      bottom: 0
+      right: 0
       margin-right: 20%
-      transform: translateY(25%);
+      transform: translateY(25%)
       border-radius: 0 9999px 9999px 0
     &__details
       flex-grow: 1
@@ -90,17 +87,18 @@
         padding: .8rem 1.3rem 
         font-size: 0.8rem
         border-radius: 0.35rem
-        border: none
         font-weight: 500
         background-color: variables.$color-light-blue
         color: #fff
-        box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15);
+        box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15)
         border: 2px solid rgba(0, 0, 0, 0)
         cursor: pointer
-      
-      
 
-@media all and (max-width: 375px)
+// -----------------------
+// Responsive styles
+// -----------------------
+
+@media all and (max-width: variables.$breakpoint-two)
   .features
     padding: 0
     p
@@ -132,5 +130,4 @@
         padding: 0 0.5rem
         color: variables.$color-gray
       button
-       display: none
-        
+        display: none

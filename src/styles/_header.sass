@@ -1,7 +1,7 @@
 @use "mixins"
 @use "variables"
 
-header 
+header
   width: 80%
   padding: 2.5rem 0
   max-width: variables.$container-width
@@ -32,8 +32,8 @@ header
       cursor: pointer
       text-decoration: none
       transition: all .1s ease
-    &__link:hover
-      color: variables.$color-light-red
+      &:hover
+        color: variables.$color-light-red
     &__link--login
       background-color: variables.$color-light-red
       color: rgba(255, 255, 255, .85)
@@ -41,18 +41,23 @@ header
       cursor: pointer
       font-weight: 500
       border-radius: 0.2rem
-      box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15);
+      box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15)
       border: 2px solid variables.$color-light-red
-    &__link--login:hover
-      background-color: #fff
-      border: 2px solid variables.$color-light-red
-@media all and (max-width: 375px)
-  header 
+      &:hover
+        background-color: #fff
+        border: 2px solid variables.$color-light-red
+
+
+// -----------------------
+// Responsive styles
+// -----------------------
+
+@media all and (max-width: variables.$breakpoint-two)
+  header
     padding: 3rem 0.6rem
     display: flex
     justify-content: space-between
     align-items: center
-    
     .header__mobile-menu
       width: 100vw
       height: 100vh
@@ -85,7 +90,6 @@ header
           border: none
           cursor: pointer
           color: #fff
-
       &__links
         +mixins.flex-column-center
         width: 100%
@@ -98,16 +102,13 @@ header
           color: #fff
           border-bottom: 1px solid rgba(255, 255, 255, .2)
           padding: 1.5rem 0
-        &__link:first-child
-          border-top: 1px solid rgba(255, 255, 255, .2)
+          &:first-child
+            border-top: 1px solid rgba(255, 255, 255, .2)
         &__link--login
           border: 2px solid #fff
           padding: .6rem 0
           border-radius: .3rem
           margin-top: 1.2rem
-        
-
-      
     .header__logo
       height: 25px
       cursor: pointer
@@ -118,3 +119,7 @@ header
       display: none
     .header__hamburger
       display: block
+
+// @media all and (min-width: 376px ) and (max-width: 1439px)
+//   header
+//     width: 100%

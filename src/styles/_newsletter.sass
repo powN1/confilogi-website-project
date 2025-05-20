@@ -11,7 +11,7 @@
   &__info
     +mixins.flex-column-center
     row-gap: 1rem
-    width: 22%
+    width: 25%
   p, h3
     color: #fff
   p
@@ -19,7 +19,7 @@
     letter-spacing: .2rem
     font-size: 0.65rem
   &__contact
-    width: 22%
+    width: 25%
     +mixins.flex-row-center
     column-gap: .8rem
     height: 2.4rem
@@ -28,8 +28,10 @@
       height: 100%
       width: 70%
       +mixins.flex-column-center
+      justify-content: flex-start
       &__input
         height: 100%
+        min-height: 100%
         width: 100%
         border-radius: 0.25rem
         border: none
@@ -39,10 +41,6 @@
           border: .15rem solid variables.$color-light-red
           border-radius: 0.25rem 0.25rem 0 0
       &__error
-        position: absolute
-        left: 0
-        bottom: 0
-        transform: translateY(100%)
         height: 50%
         width: 100%
         +mixins.flex-row-center
@@ -54,8 +52,6 @@
         padding: 0 .8rem
         border: .15rem solid variables.$color-light-red
         border-radius: 0 0 .25rem .25rem
-        visibility: hidden
-      
     button
       height: 100%
       width: 30%
@@ -65,7 +61,6 @@
       background-color: variables.$color-light-red
       color: #fff
       text-transform: capitalize
-      // box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15);
       transition: all .1s ease
       border: 2px solid variables.$color-light-red
       cursor: pointer
@@ -74,11 +69,11 @@
         background-color: #fff
         border: 2px solid variables.$color-light-red
 
-.error-active
-  visibility: visible
-  border: .15rem solid variables.$color-light-red
-        
-@media all and (max-width: 375px)
+// -----------------------
+// Responsive styles
+// -----------------------
+
+@media all and (max-width: variables.$breakpoint-two)
   .newsletter
     width: 100%
     &__info
@@ -87,7 +82,7 @@
       width: 80%
       max-width: 80%
       +mixins.flex-column-center
-      row-gap: .8rem
+      row-gap: 1.2rem
       height: 4.8rem
       &__input
         min-height: 50%
@@ -97,5 +92,5 @@
         height: 50%
         min-height: 50%
         width: 100%
-      &__error
-        padding-bottom: 1rem
+        &__error
+          position: relative

@@ -1,7 +1,7 @@
 @use 'mixins'
 @use 'variables'
 
-footer 
+footer
   width: 100%
   +mixins.flex-row-center
   background-color: variables.$color-dark-blue
@@ -24,7 +24,6 @@ footer
       font-size: 0.65rem
       &__link
         text-transform: uppercase
-        color: variables.$color-dark-blue
         letter-spacing: 0.07rem
         cursor: pointer
         text-decoration: none
@@ -43,10 +42,14 @@ footer
           transition: all .1s ease
           fill: white
         svg:hover
-          fill: variables.$color-light-red 
-      
-@media all and (max-width: 375px)
-  footer 
+          fill: variables.$color-light-red
+
+// -----------------------
+// Responsive styles
+// -----------------------
+
+@media all and (max-width: variables.$breakpoint-two)
+  footer
     .footer__wrapper
       +mixins.flex-column-center
       row-gap: 2rem
@@ -58,14 +61,13 @@ footer
           border: none
           background-color: transparent
           text-transform: uppercase
-          color: rgba(255,255,255,.9)
+          color: rgba(255, 255, 255, 0.9)
           letter-spacing: 0.1rem
           cursor: pointer
           text-align: center
       .footer__wrapper__social-links-container
         +mixins.flex-row-center
         column-gap: 1.6rem
-        margin-left: 0 
+        margin-left: 0
         &__link
           color: white
-        

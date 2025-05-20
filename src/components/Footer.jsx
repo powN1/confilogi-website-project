@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer__wrapper">
-        <Link to="/" className="footer__wrapper__logo">
+        <Link to="/" className="footer__wrapper__logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <BookmarkIcon />
         </Link>
         <div className="footer__wrapper__links-container">

@@ -1,6 +1,5 @@
 @use "variables"
 @use "mixins"
-@use "sass:string"
 
 .download
   +mixins.flex-column-center
@@ -14,7 +13,6 @@
     row-gap: 1rem
   &__cards
     width: 75%
-    // background-color: #ccc
     +mixins.flex-row-center
     align-items: flex-start
     column-gap: 1.5rem
@@ -22,10 +20,10 @@
       flex-grow: 1
       +mixins.flex-column-center
       row-gap: .5rem
-      box-shadow: 0rem 0.6rem 0.6rem 0.1rem rgba(0, 0, 0, 0.15);
+      box-shadow: 0rem 0.6rem 0.6rem 0.1rem rgba(0, 0, 0, 0.15)
       border-radius: 0.6rem
       padding: 1.2rem
-      margin-top: calc(#{'var(--stagger-index)'} * 20px);
+      margin-top: calc(#{'var(--stagger-index)'} * 20px)
       &__logo
         width: 70px
         height: 70px
@@ -51,7 +49,7 @@
         border-radius: 0.35rem
         background-color: variables.$color-light-blue
         color: white
-        box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15);
+        box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15)
         transition: all .1s ease
         border: 2px solid rgba(0, 0, 0, 0)
         cursor: pointer
@@ -59,11 +57,14 @@
           background-color: transparent
           border: 2px solid variables.$color-light-blue
           color: variables.$color-light-blue
+          
+// -----------------------
+// Responsive styles
+// -----------------------
 
-@media all and (max-width: 375px)
+@media all and (max-width: variables.$breakpoint-two)
   .download
     &__info
-      +mixins.flex-column-center
       width: 100%
     &__cards
       width: 100%

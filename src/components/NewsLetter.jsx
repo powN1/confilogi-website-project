@@ -47,7 +47,6 @@ const NewsLetter = () => {
   return (
     <section className="newsletter">
       <div className="newsletter__info">
-        {/* <p>{membersJoined}+ already joined</p> */}
         <CountdownNumber />
         <h3>Stay up-to-date with what we're doing</h3>
       </div>
@@ -60,9 +59,11 @@ const NewsLetter = () => {
             placeholder="Enter your email address"
             className={"newsletter__contact__input__input " + (errorEnabled ? "error-active" : "")}
           />
-          <div className={"newsletter__contact__input__error " + (errorEnabled ? "error-active" : "")}>
-            Whoops, make sure it's an email
-          </div>
+          {errorEnabled && (
+            <div className={"newsletter__contact__input__error"}>
+              Whoops, make sure it's an email
+            </div>
+          )}
         </div>
         <button type="submit">contact us</button>
       </form>
