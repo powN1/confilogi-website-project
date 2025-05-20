@@ -6,12 +6,12 @@
   flex-direction: row-reverse
   justify-content: space-between
   row-gap: 2rem
-  padding: 3rem 10rem
-  overflow-x: hidden
+  padding: 3rem 0
   &__image
     position: relative
-    width: 40%
+    width: 50%
     transform: translateX(20%)
+    // overflow-x: hidden
     img
       position: relative
       width: 100%
@@ -20,14 +20,14 @@
     position: absolute;
     content: "";
     width: 150%
-    height: 80%
+    height: 280px
     background-color: variables.$color-light-blue
     bottom: 0;
     right: 0;
     transform: translateX(50%);
     border-radius: 9999px 0 0 9999px
   &__content
-    width: 30%
+    width: 40%
     +mixins.flex-column-center
     align-items: flex-start
     row-gap: 1.8rem
@@ -35,25 +35,22 @@
     h2
       text-transform: capitalize
       color: variables.$color-dark-blue
-      font-size: 2.2rem
     p
       padding: 0 0.5rem
       color: variables.$color-gray
-      line-height: 1.8rem
       font-size: 0.9rem
   &__buttons
     +mixins.flex-row-center
     column-gap: 1rem
   &__button
-    padding: 1rem 
+    padding: .8rem 1rem 
     font-size: 0.8rem
     border-radius: 0.35rem
-    border: none
-    font-weight: bold
+    font-weight: 500
     background-color: rgba(0, 0, 0, 0.1)
     color: rgba(0, 0, 0, 0.65)
     box-shadow: 0rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.15);
-    transition: all .15s ease
+    transition: all .1s ease
     border: 2px solid rgba(0, 0, 0, 0)
     cursor: pointer
   &__button:hover
@@ -71,17 +68,24 @@
   .overview
     +mixins.flex-column-center
     row-gap: 2rem
-    padding: 0 0.6rem
+    padding: 0
     margin: 1rem 0
     width: 100%
     &__image
       width: 100%
       transform: translateX(0)
+    &__image::before
+      height: 160px
     &__content
       width: 100%
       h2
         text-align: center
+        // font-size: variables.$h2-mobile
       p
         text-align: center
+    &__buttons
+      width: 100%
     &__button
-      padding: 1.2rem 0.9rem
+      width: 50%
+      padding: .8rem 
+      font-size: .7rem

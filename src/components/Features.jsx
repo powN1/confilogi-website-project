@@ -24,42 +24,40 @@ const categories = [
 ];
 
 const Features = () => {
-  const [currentCategory, setCurrentCategory] = useState("simple bookmarking");
+  const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
   const handleCategoryChange = (categoryTitle) => {
-    const category = categoryTitle.toLowerCase();
+    const category = categories.find((cat) => cat.title === categoryTitle.toLowerCase());
     setCurrentCategory(category);
-
-    if (category === "simple bookmarking") {
-    } else if (category === "speedy researching") {
-    } else if (category === "easy sharing") {
-    }
   };
 
   return (
     <section className="features">
-      <h3>Features</h3>
-      <p>
-        Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between your
-        devices so you can access them on the go.
-      </p>
-      <ul className="features__categories">
-        {categories.map((cat, i) => (
-          <li key={i} onClick={() => handleCategoryChange(cat.title)}>
-            <div className={currentCategory === cat.title ? "active" : ""}>{cat.title}</div>
-          </li>
-        ))}
-      </ul>
+      <div className="features__container">
+        <h3>Features</h3>
+        <p>
+          Our aim is to make it quick and easy for you to access your favorite websites. Your bookmarks sync between
+          your devices so you can access them on the go.
+        </p>
+        <ul className="features__container__categories">
+          {categories.map((cat, i) => (
+            <li key={i} onClick={() => handleCategoryChange(cat.title)}>
+              <div className={currentCategory.title === cat.title ? "active" : ""}>{cat.title}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      {categories.slice(0, 1).map((cat, i) => (
-        <div key={i} className="features__category-extended">
-          <div className="features__category-extended__image">
-            <img src={cat.img} alt="feature img" />
-          </div>
-          <h3>{cat.heading}</h3>
-          <p>{cat.text}</p>
+      <div className="features__category-extended">
+        <div className="features__category-extended__image">
+          <img src={currentCategory.img} alt="feature img" />
         </div>
-      ))}
+        <div className="features__category-extended__details">
+          <h3>{currentCategory.heading}</h3>
+          <p>{currentCategory.text}</p>
+          <button>More Info</button>
+        </div>
+      </div>
     </section>
   );
 };

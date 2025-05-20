@@ -1,3 +1,5 @@
+import Download from "../components/Download";
+import Faq from "../components/Faq";
 import Features from "../components/Features";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -9,6 +11,8 @@ const HomePage = () => {
       <Navbar />
       <Overview />
       <Features />
+      <Download />
+      <Faq />
       <Footer />
     </div>
   );

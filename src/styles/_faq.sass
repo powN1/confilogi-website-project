@@ -1,0 +1,39 @@
+@use "variables"
+@use "mixins"
+
+.faq
+  +mixins.flex-column-center
+  row-gap: 1rem
+  width: 40%
+  &__info
+    +mixins.flex-column-center
+    row-gap: 1rem
+    text-align: center
+  &__questions
+    overflow: hidden
+    +mixins.flex-column-center
+    list-style: none
+    &__question
+      &__container
+        width: 100%
+        border-bottom: 1px solid rgba(0, 0, 0, .15)
+        padding: .6rem 0
+        position: relative
+        display: flex
+        justify-content: space-between
+        align-items: items-center
+        cursor: pointer
+        &:hover>p
+          color: variables.$color-light-red
+        p
+          transition: .1s all ease
+      ul
+        display: grid
+        grid-template-rows: 0fr
+        position: relative
+        transition: all .3s ease
+        &.show
+          grid-template-rows: 1fr
+        > p
+          overflow: hidden
+          padding: 0.6rem 0
