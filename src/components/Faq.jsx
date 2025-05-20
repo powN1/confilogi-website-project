@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { ReactComponent as Arrow } from "../assets/images/icon-arrow.svg";
 import { ArrowIcon } from "./ArrowIcon";
 
@@ -17,13 +18,18 @@ const faq = [
 ];
 
 const Faq = () => {
+  const listRef = useRef(null);
+  const [activeQuestion, setActiveQuestion] = useState(null);
+
   const handleQuestionDropdown = (e) => {
     const list = e.currentTarget.children[1];
     const arrow = e.currentTarget.children[0].children[1].children[0];
+    const text = e.currentTarget.children[0].children[0].textContent;
     if (list) {
       list.classList.toggle("show");
       arrow.classList.toggle("active");
-      console.log(arrow);
+      if (activeQuestion === text) setActiveQuestion(null);
+      else setActiveQuestion(text);
     }
   };
 
@@ -41,11 +47,10 @@ const Faq = () => {
             <div className="faq__questions__question__container">
               <p>{question.question}</p>
               <div className="faq__questions__question__container__arrow">
-                {/* <img src={arrow} alt="arrow icon" /> */}
-                <ArrowIcon stroke="#ccc222" />
+                <ArrowIcon />
               </div>
             </div>
-            <ul>
+            <ul ref={listRef}>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, explicabo. Quia cum dolorum soluta odit
                 quos accusantium consectetur cumque deleniti corrupti. Consequatur deleniti reprehenderit nostrum

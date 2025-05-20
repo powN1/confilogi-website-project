@@ -1,10 +1,12 @@
 @use "variables"
 @use "mixins"
+@use "sass:string"
 
 .download
   +mixins.flex-column-center
   row-gap: 3rem
   width: 100%
+  padding: 8rem 0
   &__info
     +mixins.flex-column-center
     width: 60%
@@ -23,6 +25,7 @@
       box-shadow: 0rem 0.6rem 0.6rem 0.1rem rgba(0, 0, 0, 0.15);
       border-radius: 0.6rem
       padding: 1.2rem
+      margin-top: calc(#{'var(--stagger-index)'} * 20px);
       &__logo
         width: 70px
         height: 70px
@@ -44,7 +47,6 @@
         padding: .8rem 1rem 
         width: 100%
         font-size: 0.75rem
-        font-family: inherit
         font-weight: 500
         border-radius: 0.35rem
         background-color: variables.$color-light-blue
@@ -57,5 +59,15 @@
           background-color: transparent
           border: 2px solid variables.$color-light-blue
           color: variables.$color-light-blue
-@media all and (max-width: 375px)
 
+@media all and (max-width: 375px)
+  .download
+    &__info
+      +mixins.flex-column-center
+      width: 100%
+    &__cards
+      width: 100%
+      +mixins.flex-column-center
+      row-gap: 2rem
+      &__card
+        margin-top: 0

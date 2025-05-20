@@ -33,7 +33,9 @@ const Download = () => {
       </div>
       <div className="download__cards">
         {browsers.map((browser, i) => (
-          <div key={i} className="download__cards__card" style={{ marginTop: `${i * 30}px` }}>
+          <div key={i} className="download__cards__card"
+          style={{ "--stagger-index": `${i}` }}
+          >
             <div className="download__cards__card__logo">
               <img src={browser.logo} alt="browser logo" />
             </div>

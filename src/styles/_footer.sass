@@ -1,33 +1,71 @@
 @use 'mixins'
 @use 'variables'
 
-@media all and (max-width: 375px)
-  footer 
+footer 
+  width: 100%
+  +mixins.flex-row-center
+  background-color: variables.$color-dark-blue
+  .footer__wrapper
+    +mixins.flex-row-center
     width: 100%
-    +mixins.flex-column-center
-    background-color: variables.$color-dark-blue
-    padding: 2rem 0
-    row-gap: 2rem
-    .footer__logo
+    max-width: variables.$container-width
+    column-gap: 2rem
+    padding: 1.4rem 0
+    &__logo
+      +mixins.flex-row-center
       height: 25px
       cursor: pointer
-      img
-        height: 100%
-        width: 100%
-    .footer__links-container
-      +mixins.flex-column-center
-      row-gap: 1.6rem
+      svg
+        path
+          fill: #fff
+    &__links-container
+      +mixins.flex-row-center
+      column-gap: 2rem
+      font-size: 0.65rem
       &__link
-        width: 100%
-        border: none
-        background-color: transparent
         text-transform: uppercase
-        color: rgba(255,255,255,.9)
-        letter-spacing: 0.1rem
+        color: variables.$color-dark-blue
+        letter-spacing: 0.07rem
         cursor: pointer
-    .footer__social-links-container
+        text-decoration: none
+        transition: all .1s ease
+        color: #fff
+        &:hover
+          color: variables.$color-light-red
+    &__social-links-container
       +mixins.flex-row-center
       column-gap: 1.6rem
+      margin-left: auto
       &__link
         color: white
+        +mixins.flex-row-center
+        svg
+          transition: all .1s ease
+          fill: white
+        svg:hover
+          fill: variables.$color-light-red 
       
+@media all and (max-width: 375px)
+  footer 
+    .footer__wrapper
+      +mixins.flex-column-center
+      row-gap: 2rem
+      .footer__wrapper__links-container
+        +mixins.flex-column-center
+        row-gap: 1.6rem
+        &__link
+          width: 100%
+          border: none
+          background-color: transparent
+          text-transform: uppercase
+          color: rgba(255,255,255,.9)
+          letter-spacing: 0.1rem
+          cursor: pointer
+          text-align: center
+      .footer__wrapper__social-links-container
+        +mixins.flex-row-center
+        column-gap: 1.6rem
+        margin-left: 0 
+        &__link
+          color: white
+        

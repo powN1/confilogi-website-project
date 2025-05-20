@@ -2,9 +2,10 @@
 @use "variables"
 
 header 
-  height: 50px
-  width: 100%
-  padding: 3rem 0
+  width: 80%
+  padding: 2.5rem 0
+  max-width: variables.$container-width
+  margin: 0 auto
   display: flex
   justify-content: space-between
   align-items: center
@@ -51,6 +52,62 @@ header
     display: flex
     justify-content: space-between
     align-items: center
+    
+    .header__mobile-menu
+      width: 100vw
+      height: 100vh
+      position: fixed
+      top: 0
+      left: 0
+      background-color: variables.$color-dark-blue
+      opacity: .97
+      z-index: 10
+      +mixins.flex-column-center
+      justify-content: flex-start
+      row-gap: 2rem
+      &__top
+        width: 80%
+        +mixins.flex-row-center
+        justify-content: space-between
+        padding: 3rem 0.6rem
+        &__logo
+          svg
+            circle
+              fill: #fff
+            path:first-child
+              fill: #fff
+            path:nth-child(2)
+              fill: variables.$color-dark-blue
+        &__close
+          +mixins.flex-row-center
+          outline: none
+          background: transparent
+          border: none
+          cursor: pointer
+          color: #fff
+
+      &__links
+        +mixins.flex-column-center
+        width: 100%
+        padding: 0 2rem
+        &__link
+          +mixins.flex-row-center
+          width: 100%
+          text-transform: uppercase
+          text-decoration: none
+          color: #fff
+          border-bottom: 1px solid rgba(255, 255, 255, .2)
+          padding: 1.5rem 0
+        &__link:first-child
+          border-top: 1px solid rgba(255, 255, 255, .2)
+        &__link--login
+          border: 2px solid #fff
+          padding: .6rem 0
+          border-radius: .3rem
+          margin-top: 1.2rem
+        
+
+      
     .header__logo
       height: 25px
       cursor: pointer
